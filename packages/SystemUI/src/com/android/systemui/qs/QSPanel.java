@@ -724,6 +724,7 @@ public class QSPanel extends LinearLayout implements Tunable {
             updateMargins(mediaHostView);
             if (mHorizontalLinearLayout != null) {
                 mHorizontalLinearLayout.setVisibility(horizontal ? View.VISIBLE : View.GONE);
+                return;
             }
         }
     }
@@ -743,6 +744,7 @@ public class QSPanel extends LinearLayout implements Tunable {
         }
         if (mHorizontalLinearLayout != null) {
             mHorizontalLinearLayout.setVisibility(withMedia ? View.VISIBLE : View.GONE);
+            return;
         }
     }
 
