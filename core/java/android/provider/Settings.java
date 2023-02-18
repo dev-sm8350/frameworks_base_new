@@ -6822,10 +6822,10 @@ public final class Settings {
         public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
 
         /**
-         * Whether to enable the ripple animation on fingerprint unlock
+         * Whether to disable the ripple animation on fingerprint unlock
          * @hide
          */
-        public static final String ENABLE_RIPPLE_EFFECT = "enable_ripple_effect";
+        public static final String DISABLE_RIPPLE_EFFECT = "disable_ripple_effect";
 
         /**
          * Whether to vibrate on succesful fingerprint authentication
