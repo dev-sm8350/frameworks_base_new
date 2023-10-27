@@ -23,6 +23,8 @@ import android.content.Context
 import android.content.res.Configuration
 import android.os.SystemClock
 import android.os.Trace
+import android.os.UserHandle
+import android.provider.Settings
 import android.util.IndentingPrintWriter
 import android.util.Log
 import android.util.MathUtils
@@ -92,6 +94,10 @@ class NotificationShadeDepthController @Inject constructor(
     private var isBlurred: Boolean = false
     private var listeners = mutableListOf<DepthListener>()
     private var inSplitShade: Boolean = false
+
+    private val isAuthRippleDisabled: Boolean
+        get() = Settings.System.getInt(context.contentResolver,
+            Settings.System.DISABLE_RIPPLE_EFFECT, 0) == 1
 
     private var prevTracking: Boolean = false
     private var prevTimestamp: Long = -1
@@ -256,7 +262,8 @@ class NotificationShadeDepthController @Inject constructor(
     private val keyguardStateCallback = object : KeyguardStateController.Callback {
         override fun onKeyguardFadingAwayChanged() {
             if (!keyguardStateController.isKeyguardFadingAway ||
-                    biometricUnlockController.mode != MODE_WAKE_AND_UNLOCK) {
+                    biometricUnlockController.mode != MODE_WAKE_AND_UNLOCK ||
+                    !isAuthRippleDisabled) {
                 return
             }
 
