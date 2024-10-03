@@ -94,5 +94,5 @@
     <bool name="config_disableSmartPixelsOnUDFPS">false</bool>
 
     <!-- Whether to play turbulence noise after clicking the play button -->
-    <bool name="config_turbulenceNoise">true</bool>
+    <bool name="config_turbulenceNoise">false</bool>
 </resources>
